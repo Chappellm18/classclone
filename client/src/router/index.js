@@ -1,26 +1,31 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
-import feed from '../views/feed.vue'
-import Session from '../services/session'
+import Session from '../services/session';
+import Home from '../views/Home.vue';
+import Feed from '../views/Feed.vue';
+
+
 const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home,
-    meta: { requiresLogin: false }
+    component: Home
   },
   {
     path: '/feed',
-    name: 'feed',
-    component: feed,
+    name: 'Feed',
+    component: Feed,
     meta: { requiresLogin: true }
   },
   {
+    path: '/about',
+    name: 'About',
+    component: '../views/About'
+  },
+  {
     path: '/login',
-    name: 'login',
-    component: () => import('../views/login.vue')
-  }
-  
+    name: 'Login',
+    component: '../views/Login'
+  },
 ]
 
 const router = createRouter({
@@ -28,11 +33,10 @@ const router = createRouter({
   routes
 })
 
-router.beforeEach((to,from,next) => {
-  if(to.meta.requiresLogin && !Session.user){
+router.beforeEach((to, from, next) => {
+  if (to.meta.requiresLogin && !Session.user) {
     next('/login');
-  }
-  else {
+  } else {
     next();
   }
 })

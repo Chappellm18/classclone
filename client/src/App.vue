@@ -1,36 +1,25 @@
 <template>
-
-  <div id="container">
-    <navbar />
-    <router-view/>
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <Nav />
+        <messages />
+        <router-view />
+      </div>
+    </div>
   </div>
-  
 </template>
 
-<script>
-import navbar from './components/navbar.vue'
-
-export default {
-  data() {
-    return {
-
-    }
-  },
-  components: {
-    navbar
-  }
-}
-</script>
-
-
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-
 </style>
+
+<script>
+import Messages from "./components/Messages.vue";
+import Nav from "./components/Nav";
+export default {
+  components: {
+    Nav,
+    Messages,
+  },
+};
+</script>

@@ -18,8 +18,13 @@ export default {
   },
   methods: {
     login() {
+      this.$router.push("/login");
       //this.Session.Login();
-        this.$router.push('/login')
+    },
+  },
+  computed: {
+    name() {
+      return this.Session.user.firstName + " " + this.Session.user.lastName;
     },
   },
 };
