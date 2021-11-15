@@ -6,7 +6,6 @@ console.log(`The best class at New Paltz is ${process.env.BEST_CLASS}`);
 
 const usersController = require('./controllers/users');
 const postsController = require('./controllers/posts');
-const { nextTick } = require('process');
 
 const app = express()
 const port = process.env.PORT || 3000;

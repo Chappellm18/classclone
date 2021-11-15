@@ -15,7 +15,7 @@
 
 <script>
 import Messages from "./components/Messages.vue";
-import Nav from "./components/Nav";
+import Nav from "./components/Nav.vue";
 export default {
   components: {
     Nav,

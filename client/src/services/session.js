@@ -28,6 +28,19 @@ const session = {
         }
 
 
+    },
+    Error(error) {
+        console.error(error);
+        const msg = error.msg || error.message || error;
+        this.messages.push({ text: error.msg, type: 'warning' })
+        NotificationProgrammatic.open({
+            duration: 5000,
+            message: msg,
+            variant: 'danger',
+            type: 'danger',
+            closable: true,
+
+        })
     }
 };
 
