@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 require('dotenv').config();
 
-console.log(`The best class at New Paltz is ${process.env.BEST_CLASS}`);
+console.log('The best class at New Paltz is ' + process.env.BEST_CLASS);
 
 const usersController = require('./controllers/users');
 const postsController = require('./controllers/posts');
@@ -11,7 +11,7 @@ const app = express()
 const port = process.env.PORT || 3000;
 
 app
-  .use('/', express.static(path.join(__dirname, '../docs')))
+  .use('/', express.static(path.join(__dirname, '..', '/docs/')))
 
   .use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');

@@ -18,7 +18,7 @@ export function Get(post_id) {
 }
 
 export function Add(post) {
-    return { ...post };
+    return api('posts', 'POST', post);
 }
 
 export function Update(post_id, post) {
@@ -26,5 +26,5 @@ export function Update(post_id, post) {
 }
 
 export function Delete(post_id) {
-    return post_id;
+    return api('posts/' + post_id, { method: 'DELETE' });
 }
