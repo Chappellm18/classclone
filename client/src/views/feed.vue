@@ -5,7 +5,7 @@
     <div class="columns"></div>
 
     <div class="column is-half is-offset-one-quater">
-      <post-edit :newPost="newPost" @submit="add()" />
+      <post-edit :newPost="newPost" @add="add()" />
 
       <div class="post" v-for="(p, i) in posts" :key="p.src">
         <post :post="p" @remove="remove(p, i)" />
@@ -23,6 +23,9 @@ import Post from "../components/Post.vue";
 import PostEdit from "../components/Post-edit.vue";
 import session from "../services/session";
 import { Add, Delete, GetWall } from "../services/posts";
+
+function newPost = () => ({user: session.user, user_handle: session.user.handle});
+
 export default {
   components: {
     Post,
@@ -48,6 +51,7 @@ export default {
       const response = await Add(this.newPost);
       if (response) {
         this.posts.unshift(this.newPost);
+      this.newPost = newPost();
       }
     },
   },

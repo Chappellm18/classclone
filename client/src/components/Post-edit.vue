@@ -1,5 +1,5 @@
 <template>
-  <form class="card" @submit.prevent="$emit('submit')">
+  <form class="card" @submit.prevent="$emit('add')">
     <div class="card-content">
       <div class="content">
         <div class="field">
